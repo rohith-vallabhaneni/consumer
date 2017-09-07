@@ -41,6 +41,8 @@
 						<configuration>
 							<brokerUrl>https://github.com/rohith-vallabhaneni/provider.git</brokerUrl>
 							<pacts>${project.build.directory}/pacts</pacts>
+							<username>rohith-vallabhaneni</username>
+							<password>Github@9</password>
 						</configuration>
 					</execution>
 				</executions>
