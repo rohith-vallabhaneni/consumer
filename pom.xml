@@ -1,50 +1,80 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
- <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
- <groupId>com.ggktech</groupId>
- <artifactId>Consumer</artifactId>
- <version>0.0.1-SNAPSHOT</version>
- <packaging>jar</packaging>
+	<groupId>com.ggktech</groupId>
+	<artifactId>Consumer</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
- <name>Consumer</name>
- <url>http://maven.apache.org</url>
+	<name>Consumer</name>
+	<url>http://maven.apache.org</url>
 
- <parent>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-parent</artifactId>
-  <version>1.5.4.RELEASE</version>
- </parent>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.6.RELEASE</version>
+	</parent>
 
- <properties>
-  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  <java.version>1.8</java.version>
- </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+	</properties>
 
- <!-- <build> <plugins> <plugin> <groupId>org.springframework.boot</groupId> 
-  <artifactId>spring-boot-maven-plugin</artifactId> </plugin> </plugins> </build> -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.github.warmuuh</groupId>
+				<artifactId>pactbroker-maven-plugin</artifactId>
+				<version>0.0.10</version>
+				<executions>
+					<execution>
+						<id>upload-pacts</id>
+						<phase>test</phase>
+						<goals>
+							<goal>upload-pacts</goal>
+						</goals>
+						<configuration>
+							<brokerUrl>https://github.com/rohith-vallabhaneni/provider.git</brokerUrl>
+							<pacts>${project.build.directory}/pacts</pacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
- <dependencies>
-  <dependency>
-   <groupId>org.springframework.boot</groupId>
-   <artifactId>spring-boot-starter-web</artifactId>
-  </dependency>
-  <dependency>
-   <groupId>au.com.dius</groupId>
-   <artifactId>pact-jvm-consumer-junit_2.11</artifactId>
-   <version>3.5.4</version>
-   <scope>test</scope>
-  </dependency>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>au.com.dius</groupId>
+			<artifactId>pact-jvm-consumer-junit_2.11</artifactId>
+			<version>3.5.4</version>
+			<scope>test</scope>
+		</dependency>
 
- </dependencies>
- <repositories>
-  <repository>
-   <id>maven central repo</id>
-   <url>https://repo.maven.apache.org/maven2</url>
-  </repository>
-  <repository>
-   <id>attlassian repo</id>
-   <url>https://maven.atlassian.com/repository/internal</url>
-  </repository>
- </repositories>
+	</dependencies>
+	<repositories>
+		<repository>
+			<id>maven central repo</id>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+		<repository>
+			<id>attlassian repo</id>
+			<url>https://maven.atlassian.com/repository/internal</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</pluginRepository>
+	</pluginRepositories>
 </project>
