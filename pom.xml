@@ -39,7 +39,7 @@
 							<goal>upload-pacts</goal>
 						</goals>
 						<configuration>
-							<brokerUrl>https://github.com/rohith-vallabhaneni/provider.git</brokerUrl>
+							<brokerUrl>git@git.metrosystems.net:pipeline-cdc/provider-example.git</brokerUrl>
 							<pacts>${project.build.directory}/pacts</pacts>
 							<username>rohith-vallabhaneni</username>
 							<password>Github@9</password>
