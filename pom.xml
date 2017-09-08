@@ -43,4 +43,14 @@
 		</dependency>
 
 	</dependencies>
+<repositories>
+  <repository>
+   <id>maven central repo</id>
+   <url>https://repo.maven.apache.org/maven2</url>
+  </repository>
+  <repository>
+   <id>attlassian repo</id>
+   <url>https://maven.atlassian.com/repository/internal</url>
+  </repository>
+ </repositories>
 </project>
