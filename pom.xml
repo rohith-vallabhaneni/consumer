@@ -27,24 +27,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>com.github.warmuuh</groupId>
-				<artifactId>pactbroker-maven-plugin</artifactId>
-				<version>0.0.10</version>
-				<executions>
-					<execution>
-						<id>upload-pacts</id>
-						<phase>test</phase>
-						<goals>
-							<goal>upload-pacts</goal>
-						</goals>
-						<configuration>
-							<brokerUrl>git@git.metrosystems.net:pipeline-cdc/provider-example.git</brokerUrl>
-							<pacts>${project.build.directory}/pacts</pacts>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 
@@ -61,20 +43,4 @@
 		</dependency>
 
 	</dependencies>
-	<repositories>
-		<repository>
-			<id>maven central repo</id>
-			<url>https://repo.maven.apache.org/maven2</url>
-		</repository>
-		<repository>
-			<id>attlassian repo</id>
-			<url>https://maven.atlassian.com/repository/internal</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
-		</pluginRepository>
-	</pluginRepositories>
 </project>
