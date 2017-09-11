@@ -18,15 +18,15 @@ import au.com.dius.pact.model.RequestResponsePact;
 public class ConsumerTest extends ConsumerPactTestMk2{
 
 	 @Rule
-	 public PactProviderRuleMk2 mockProvider = new PactProviderRuleMk2("test_provider", "localhost", 8080, this);
-	 
+	 public PactProviderRuleMk2 mockProvider = new PactProviderRuleMk2("pact_provider", "localhost", 8080, this);
+
 	@Override
 	protected String consumerName() {
-		return "user_test";
+		return "pact_consumer";
 	}
 
 	@Override
-	@Pact(provider="test_provider", consumer="test_consumer")
+	@Pact(provider="pact_provider", consumer="pact_consumer")
 	protected RequestResponsePact createPact(PactDslWithProvider builder) {
 		 return builder
 		            .given("test state") // NOTE: Using provider states are optional, you can leave it out
@@ -41,7 +41,7 @@ public class ConsumerTest extends ConsumerPactTestMk2{
 
 	@Override
 	protected String providerName() {
-		return "user_provide";
+		return "pact_provider";
 	}
 
 	@Override
@@ -51,5 +51,5 @@ public class ConsumerTest extends ConsumerPactTestMk2{
 		Assert.assertNotNull(user);
 	}
 
-	
+
 }
