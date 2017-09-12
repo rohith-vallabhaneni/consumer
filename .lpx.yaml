@@ -1,4 +1,5 @@
-``
+---
+
 customer: platform
 vertical: cdc
 
@@ -16,7 +17,7 @@ install:
 build: mvn clean install && mvn pact:publish
 
 services:
-- id: spbootsimple
+- id: consumerexample
   type: java
   copy:
   - ./target/Consumer-0.0.1-SNAPSHOT.jar /Consumer-0.0.1-SNAPSHOT.jar
@@ -30,13 +31,8 @@ services:
       memory: "200Mi"
       cpu: "200m"
     limits:
-      memory: "300Mi"
+      memory: "500Mi"
       cpu: "1000m"
-
-# Specifies the files executed for tests on each environment. Need to be executable 'chmod +x'
-tests:
- - stage: pp
-   test: ./scripts/tests.sh
 
 watchers:
   - navyateja.otturu@ggktech.com
@@ -44,4 +40,3 @@ watchers:
 
 slack-channels:
   - '@peng-cdc'
-```
